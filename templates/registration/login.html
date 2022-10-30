@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Facebook – entre ou cadastre-se</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}">
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="col-logo">
+                <img src="{% static 'images/fb_logo.svg' %}" alt="Logo">
+                <h2>O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</h2>
+            </div>
+            <form method="post" action="{% url 'login' %}" class="sign-in-form">
+            {% csrf_token %}
+            <div class="col-form">
+                {% if form.errors %}
+    					<div role="alert">
+    						<div class="alert alert-danger">{{ form.non_field_errors }}</div>
+    					</div>
+				{% endif %}
+                <div class="form-container">
+                    <input type="text" name="username" autocomplete="username" required="" id="id_username" placeholder="Email ou telefone" />
+                    <input type="password" name="password" autocomplete="current-password" required="" id="id_password" placeholder="Senha" />
+                    <button type="submit" class="btn btn-login">Entrar</button>
+                    <input type="hidden" name="next" value="">
+                    <a href="#">Esqueceu a senha?</a>
+                    <button class="btn-new">Criar nova conta</button>
+                </div>
+                <p><a href="#"><b>Criar uma Página</b></a> para uma celebridade, uma marca ou uma empresa.</p>
+            </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-contents">
+            <ol>
+                <li>Português (Brasil)</li>
+                <li><a href="#">English (US)</a></li>
+                <li><a href="#">Español</a></li>
+                <li><a href="#">Français (France)</a></li>
+                <li><a href="#">Italiano/a></li>
+                <li><a href="#">Deutsch</a></li>
+                <li><a href="#">العربية</a></li>
+                <li><a href="#">हिन्दी</a></li>
+                <li><a href="#">中文(简体)</a></li>
+                <li><a href="#">日本語</a></li>
+                <li><button>+</button></li>
+            </ol>
+
+            <ol>
+                <li><a href="#">Cadastre-se</a></li>
+                <li><a href="#">Entrar</a></li>
+                <li><a href="#">Messenger</a></li>
+                <li><a href="#">Facebook Lite</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">Locais</a></li>
+                <li><a href="#">Jogos</a></li>
+                <li><a href="#">Marketplace</a></li>
+                <li><a href="#">Meta Pay</a></li>
+                <li><a href="#">Portal</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">Boletim</a></li>
+                <li><a href="#">Local</a></li>
+                <li><a href="#">Campanhas de arrecadação de fundos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Central de Informações de Votação</a></li>
+                <li><a href="#">Grupos</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="#">Criar anúncio</a></li>
+                <li><a href="#">Criar Página</a></li>
+                <li><a href="#">Desenvolvedores</a></li>
+                <li><a href="#">Carreiras</a></li>
+                <li><a href="#">Privacidade</a></li>
+                <li><a href="#">Cookies</a></li>
+                <li><a href="#">Escolhas para anúncios</a></li>
+                <li><a href="#">Termos</a></li>
+                <li><a href="#">Ajuda</a></li>
+                <li><a href="#">Carregamento de contatos e não usuários</a></li>
+            </ol>
+            <small>Meta © 2022</small>
+        </div>
+    </footer>
+</body>
+
+</html>
